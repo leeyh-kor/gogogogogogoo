@@ -5,6 +5,7 @@ package main
 // 함수 이름의 시작이 소문자면 내부함수 대문자면 import 가능
 // 가끔씩 편집기 창이 겁나 춤춤... 이상함 ㅠ
 import (
+	"banking"
 	"fmt"
 	"strings"
 	"time"
@@ -20,23 +21,13 @@ func returnType(name string) (length int, uppercase string) { // legnth uppercas
 	return // 요런 신기한것도 지원함 ㄷㄷ 이걸 naked return 이라고 함
 }
 func main() {
-	const name string = "yh" // 정적 타입 지정 언어
-	myName := "leeyh"        // 축약형을 쓰면 첫번째로 지정한 타입으로 할당됨 지금은 str
-	myName = "cococo"        // 타입을 지정하지 않으면 프프린트도 안댐
-	fmt.Println("hello, world")
-	fmt.Println("\n할로 월드?")
-	fmt.Println(name + "\n\n")
-	fmt.Println(myName)
-	fmt.Println(mul(2, 3))
-	fmt.Println(returnType("sass")) //뭔가 달고 주석추가 안하면 코딩창 지랄남?
-	fmt.Println(time.Now())
-	result := 0
-	for i := 0; i < 1000000; i++ {
-		result += i
-	}
-	fmt.Println(result)
+
+	account := banking.BankAccount{Name: "이유현", Account: 312}
+	fmt.Println(account)
 	fmt.Println(time.Now())
 	loop(1, 2, 3, 4, 5, 6, 7)
+	fmt.Println(account)
+
 }
 
 func loop(numbers ...int) int {
