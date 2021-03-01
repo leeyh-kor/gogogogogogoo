@@ -8,7 +8,6 @@ import (
 	"banking"
 	"fmt"
 	"strings"
-	"time"
 )
 
 func mul(a int, b int) int { // 각각각 타입을 지정해 줘야 함
@@ -22,11 +21,12 @@ func returnType(name string) (length int, uppercase string) { // legnth uppercas
 }
 func main() {
 
-	account := banking.BankAccount{Name: "이유현", Account: 312}
-	fmt.Println(account)
-	fmt.Println(time.Now())
-	loop(1, 2, 3, 4, 5, 6, 7)
-	fmt.Println(account)
+	account := banking.NewAccount("yhyh")
+	fmt.Println(*account)
+	fmt.Println(&account)
+	account.Deposit(3000)
+	fmt.Println(account.Balance())
+	fmt.Println(&account)
 
 }
 
