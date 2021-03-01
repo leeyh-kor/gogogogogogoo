@@ -5,8 +5,8 @@ package main
 // 함수 이름의 시작이 소문자면 내부함수 대문자면 import 가능
 // 가끔씩 편집기 창이 겁나 춤춤... 이상함 ㅠ
 import (
-	"banking"
 	"fmt"
+	"mydict"
 	"strings"
 )
 
@@ -20,14 +20,9 @@ func returnType(name string) (length int, uppercase string) { // legnth uppercas
 	return // 요런 신기한것도 지원함 ㄷㄷ 이걸 naked return 이라고 함
 }
 func main() {
-
-	account := banking.NewAccount("yhyh")
-	fmt.Println(*account)
-	fmt.Println(&account)
-	account.Deposit(3000)
-	fmt.Println(account.Balance())
-	fmt.Println(&account)
-
+	dictionary := mydict.Dictionary{}
+	dictionary["super"] = "sexy"
+	fmt.Println(dictionary)
 }
 
 func loop(numbers ...int) int {
