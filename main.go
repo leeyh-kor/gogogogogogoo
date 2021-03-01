@@ -21,7 +21,16 @@ func returnType(name string) (length int, uppercase string) { // legnth uppercas
 }
 func main() {
 	dictionary := mydict.Dictionary{}
-	dictionary["super"] = "sexy"
+	dictionary["super"] = "monster"
+	addErr := dictionary.Add("word", "description")
+	if addErr == nil {
+		fmt.Println(dictionary)
+	}
+	updateErr := dictionary.Update("word", "메롱")
+	if updateErr == nil {
+		fmt.Println(dictionary["word"])
+	}
+	dictionary.Delete("word")
 	fmt.Println(dictionary)
 }
 
