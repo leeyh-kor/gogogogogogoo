@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -41,8 +42,8 @@ func getPage(page int, c chan bool) chan bool {
 	searchCards := doc.Find(".jobsearch-SerpJobCard")
 	searchCards.Each(func(i int, card *goquery.Selection) {
 		id, _ := card.Attr("data-jk")
-		title := card.Find(".title>a").Text()
-		location := card.Find(".sjcl").Text()
+		title := CleanString(card.Find(".title>a").Text())
+		location := CleanString(card.Find(".sjcl").Text())
 		fmt.Println(id, title, location)
 	})
 
@@ -75,8 +76,13 @@ func checkErr(err error) {
 		log.Fatalln(err)
 	}
 }
+
 func checkCode(code *http.Response) {
 	if code.StatusCode != 200 {
 		log.Fatalln("Request failed with Status", code.Status)
 	}
+}
+
+func CleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
