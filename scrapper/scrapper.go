@@ -26,7 +26,7 @@ func Scrape(term string) {
 	var jobs []extractedJob
 	totalPages := getPages(baseURL)
 
-	for i := 0; i < 9; i++ {
+	for i := 0; i < totalPages; i++ {
 		subjobs := getPage(i, baseURL)
 		jobs = append(jobs, subjobs...)
 	}

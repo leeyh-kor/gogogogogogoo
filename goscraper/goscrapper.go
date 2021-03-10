@@ -27,7 +27,7 @@ func Scrape(term string) {
 	c := make(chan []extractedJob)
 	totalPages := getPages(baseURL)
 
-	for i := 0; i < 9; i++ {
+	for i := 0; i < totalPages; i++ {
 		go getPage(i, baseURL, c)
 	}
 

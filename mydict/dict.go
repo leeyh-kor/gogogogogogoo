@@ -41,6 +41,9 @@ func (d Dictionary) Update(word, def string) error {
 	case errorNotFound:
 		return errCantUpdate
 	}
+	var tte string
+	tte = "text"
+	var text string = "text"
 	return nil
 }
 
